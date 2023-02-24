@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View, FlatList, ImageBackground, Dimensions, ScrollView, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 
-import cars from '../cars';
+import Cars from '../cars';
 const Home = (props) => {
-    // const cars = [];
+    const cars = Cars();
     
     const renderMostReservedItem = (item) => {
         return (

@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react'
 import { Text, TouchableOpacity, Image, FlatList, SafeAreaView, StyleSheet, Dimensions, View, TextInput, Switch } from 'react-native'
-
-import cars, { AUTOMATIC, MANUAL, Car} from '../cars';
+import { MANUAL, AUTOMATIC} from '../cars'
+import Cars from '../cars';
 
 const CarsList = (props) => {
-   const data = Car();
+   const cars = Cars();
     const [filters, setFilters] = useState({
         visible: false,
         priceStart: 0,
         priceEnd: 499,
         aircondition: true,
-        transmission: AUTOMATIC
+        transmission: "AUTOMATIC"
     })
 
     useEffect(() => {
@@ -79,8 +79,8 @@ const CarsList = (props) => {
                     <View style={styles.filter}>
                         <Text>Automatique</Text>
                         <Switch
-                            value={filters.transmission === AUTOMATIC ? true : false}
-                            onValueChange={(value) => setFilters({ ...filters, transmission: (value ? AUTOMATIC : MANUAL) })}
+                            value={filters.transmission === "AUTOMATIC" ? true : false}
+                            onValueChange={(value) => setFilters({ ...filters, transmission: (value ? "AUTOMATIC" : "MANUAL") })}
                         />
                         <Text>Climatisation</Text>
                         <Switch
@@ -98,7 +98,6 @@ const CarsList = (props) => {
         <SafeAreaView>
 
             {renderFilters()}
-            <Car/>
             <FlatList
                 data={carsFiltered}
                 renderItem={({ item }) => renderCarItem(item)}
