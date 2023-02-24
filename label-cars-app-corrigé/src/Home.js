@@ -5,7 +5,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import Cars from '../cars';
 const Home = (props) => {
     const cars = Cars();
-    
+
     const renderMostReservedItem = (item) => {
         return (
             <View style={styles.carItem}>
@@ -54,7 +54,7 @@ const Home = (props) => {
                     <FlatList
                         data={carsMostReserved}
                         renderItem={({ item }) => renderMostReservedItem(item)}
-                        keyExtractor={item => item.id}
+                        keyExtractor={item => item._id}
                         numColumns="2"
                     />
                 </View>
